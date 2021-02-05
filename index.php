@@ -26,6 +26,17 @@
 			<li><a href="#">View complete log</a></li>
 			<li><a href="#">View statistics</a></li>
 		</ul-->
+		<h2>Activities logged today (<?php echo $cur_date;?>)</h2>
+		<ul>
+		<?php
+		foreach ($daylog as $log){
+			$time = date( 'h:i', strtotime($log['time']) );
+			$subj = $log['subject'];
+			$desc = $log['description'];
+			echo "<li><details><summary>$time -> $subj</summary><pre><code>$desc</code></pre></details></li>";
+		}
+		?>
+		</ul>
 		<form action="" method="post">
 		<h2>Log a new activity</h2>
 		<fieldset>
@@ -38,16 +49,5 @@
 		<input type="submit" value="Add activity for today">
 		<input type="hidden" name="hash" value="random hash">
 		</form>
-		<h2>Activities logged today (<?php echo $cur_date;?>)</h2>
-		<ul>
-		<?php
-		foreach ($daylog as $log){
-			$time = date( 'h:i', strtotime($log['time']) );
-			$subj = $log['subject'];
-			$desc = $log['description'];
-			echo "<li><details><summary>$time -> $subj</summary><pre><code>$desc</code></pre></details></li>";
-		}
-		?>
-		</ul>
 	</body>
 </html>
