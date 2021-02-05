@@ -45,7 +45,7 @@
 			$time = date( 'h:i', strtotime($log['time']) );
 			$subj = $log['subject'];
 			$desc = $log['description'];
-			echo "<li><details><summary>$time -> $subj</summary><p>$desc</p></details></li>";
+			echo "<li><details><summary>$time -> $subj</summary><pre><code>$desc</code></pre></details></li>";
 		}
 		?>
 		</ul>
